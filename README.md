@@ -1,2 +1,3 @@
-# My Neovim Config 
+# My Neovim Dotfiles
+
 
