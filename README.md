@@ -8,3 +8,13 @@
 ### Simple Cheatsheets
 * [Neovim Cheatsheet](https://github.com/tanrichi/nvim-dotfiles/blob/main/neovim-cheatsheet.md)
 * [Plugins Keymaps Cheatsheet](https://github.com/tanrichi/nvim-dotfiles/blob/main/plugin-keymaps-cheatsheet.md)
+
+### Minimal Plugins
+* lazy.nvim
+* telescope.nvim
+* nvim-treesitter
+* mason.nvim, mason-lspconfig.nvim, nvim-lspconfig
+* cmp-nvim-lsp, LuaSnipm, nvim-cmp
+* lualine.nvim
+* toggleterm.nvim
+* tokyonight.nvim
