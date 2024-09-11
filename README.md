@@ -18,3 +18,9 @@
 * lualine.nvim
 * toggleterm.nvim
 * tokyonight.nvim
+
+### Mason LSPs:
+* eslint_d
+* prettier
+* vls (vue-language-server)
+* ts_ls (typescript-language-server)
