@@ -1,9 +1,9 @@
 # My Neovim Configs
 
 ### Branches
-* `main` Latest version
+* `main` Latest Neovim version
 * `lazy-vim` LazyVim config
-* `minimal` Minimal config
+* `minimal` Minimal Neovim config
 
 ### Simple Cheatsheets
 * [Neovim Cheatsheet](https://github.com/tanrichi/nvim-dotfiles/blob/main/neovim-cheatsheet.md)
