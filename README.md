@@ -1,4 +1,10 @@
-# 💤 LazyVim
+# My Neovim Configs
 
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
+### Branches
+* `main` Latest version
+* `lazy-vim` LazyVim config
+* `minimal` Minimal config
+
+### Simple Cheatsheets
+* [Neovim Cheatsheet](https://github.com/tanrichi/nvim-dotfiles/blob/main/neovim-cheatsheet.md)
+* [Plugins Keymaps Cheatsheet](https://github.com/tanrichi/nvim-dotfiles/blob/main/plugin-keymaps-cheatsheet.md)
