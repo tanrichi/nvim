@@ -24,3 +24,4 @@
 * prettier
 * vls (vue-language-server)
 * ts_ls (typescript-language-server)
+
