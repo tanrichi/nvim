@@ -28,5 +28,9 @@
 * `<leader>fe` Find .env files
 * `<leader>fb` Open File browser
 * `<A-c>/c` Insert/Normal mode: create new file
+
 ## None LS:
 * `<leader>gf` Format
+
+## Lazy Git:
+* `<leader>gg` Open LazyGit
