@@ -3,7 +3,7 @@
 ## Completions:
 * `<C-b>` scroll docs -4
 * `<C-f>` scroll docs +4
-* `<C-space>` complete
+* `<Tab>` Select first and complete
 * `<C-e>` abort
 * `<C-R>` confirm(select = true)
  
@@ -27,10 +27,17 @@
 * `<leader>fh` Help tags
 * `<leader>fe` Find .env files
 * `<leader>fb` Open File browser
-* `<A-c>/c` Insert/Normal mode: create new file
+* `<A-c>/c` Insert/Normal mode: create new file in file browser
 
 ## None LS:
 * `<leader>gf` Format
 
 ## Lazy Git:
 * `<leader>gg` Open LazyGit
+
+## Comment:
+* `gcc` Toggle comment line at cursor
+* `gbc` Toggle comment block at cursor
+* `'v' gc` Toggle comment line in Visual mode
+* `'v' gb` Toggle comment block in Visual mode
+
