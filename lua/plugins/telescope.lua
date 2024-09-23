@@ -24,6 +24,7 @@ return {
 			end)
 
 			vim.keymap.set("n", "<space>fb", ":Telescope file_browser<CR>")
+			vim.keymap.set("n", "<leader>fk", builtin.keymaps, {})
 			require("telescope").load_extension("ui-select")
 		end,
 	},
