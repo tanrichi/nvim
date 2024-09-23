@@ -117,3 +117,8 @@
 * `-` Go to parent directory
 * `Dy` Delete file
 
+## **Remaps**
+* `==` Select all
+* `<leader>q` Close current buffer
+* `<leader>s` Replace word under cursor
+
