@@ -10,9 +10,9 @@ return {
 
     vim.keymap.set("n", "<C-t>", function()
       ui.nav_file(1)
-    end, { desc = "Harpoon File 1" })
+    end, { desc = "Go to Harpoon File 1" })
     vim.keymap.set("n", "<C-v>", function()
       ui.nav_file(2)
-    end, { desc = "Harpoon File 2" })
+    end, { desc = "Go to Harpoon File 2" })
   end,
 }

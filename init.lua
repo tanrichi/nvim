@@ -1,4 +1,2 @@
-require("config.options")
-require("config.remaps")
-require("config.lazy")
-
+require("tanrichi.core")
+require("tanrichi.lazy")
