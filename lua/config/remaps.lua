@@ -36,3 +36,6 @@ vim.keymap.set(
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
+
+-- Remap Escape key
+vim.api.nvim_set_keymap('i', ';;', '<Esc>', { noremap = true, silent = true })
