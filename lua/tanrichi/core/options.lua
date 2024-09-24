@@ -1,9 +1,7 @@
-vim.cmd("let g:netrw_liststyle = 3")
-
 local opt = vim.opt
 
 opt.relativenumber = true
-opt.number = true
+opt.nu = true
 
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
@@ -32,6 +30,7 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 
 opt.swapfile = false
 opt.backup = false
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
 
 opt.scrolloff = 25

@@ -4,7 +4,6 @@ return {
     branch = "0.1.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       "debugloop/telescope-undo.nvim",
       "nvim-tree/nvim-web-devicons",
       "folke/todo-comments.nvim",
@@ -28,6 +27,9 @@ return {
       telescope.setup({
         extensions = {
           undo = {},
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown({}),
+          },
         },
         defaults = {
           path_display = { "smart" },
@@ -41,8 +43,7 @@ return {
           },
         },
       })
-
-      telescope.load_extension("fzf")
+      telescope.load_extension("ui-select")
       telescope.load_extension("file_browser")
       telescope.load_extension("neoclip")
       telescope.load_extension("undo")
@@ -61,7 +62,7 @@ return {
 
       -- Find string
       keymap.set("n", "<leader>fg", function()
-        builtin.grep_string()
+        builtin.live_grep()
       end, { desc = "Find string in cwd" })
 
       -- Find buffers
