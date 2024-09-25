@@ -13,6 +13,9 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
+-- Delete selected text and past last yank
+keymap.set("x", "<leader>p", [["_dP]], { desc = "Delete selected text and past last yank" })
+
 -- Better Yank
 keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Normal Yank" })
 keymap.set({ "n", "v" }, "<leader>Y", [["+Y]], { desc = "Yank to clipboard" })
@@ -25,17 +28,17 @@ keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- Select all
-keymap.set("n", "==", "gg<S-v>G", { desc = "Select all"})
+keymap.set("n", "==", "gg<S-v>G", { desc = "Select all" })
 
 -- close buffer
 keymap.set("n", "<leader>q", "<cmd>bd<CR>", { desc = "Close Buffer" })
 
 -- Replace word under cursor across entire buffer
 keymap.set(
-	"n",
-	"<leader>s",
-	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "Replace word under cursor" }
+  "n",
+  "<leader>s",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Replace word under cursor" }
 )
 
 -- Stay in indent mode
