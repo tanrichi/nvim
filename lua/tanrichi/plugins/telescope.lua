@@ -47,7 +47,7 @@ return {
       telescope.load_extension("file_browser")
       telescope.load_extension("neoclip")
       telescope.load_extension("undo")
-      telescope.load_extension("harpoon")
+      -- telescope.load_extension("harpoon")
 
       -- set keymaps
       local keymap = vim.keymap -- for conciseness
@@ -89,7 +89,7 @@ return {
       end, { desc = "[/] Fuzzily search in current buffer" })
 
       -- Find Harpoon Marks
-      keymap.set("n", "<C-e>", ":Telescope harpoon marks<CR>", { desc = "Show Harpoon marks" })
+      -- keymap.set("n", "<C-e>", ":Telescope harpoon marks<CR>", { desc = "Show Harpoon marks" })
 
       -- Find Help Tags
       keymap.set("n", "<leader>fh", function()
