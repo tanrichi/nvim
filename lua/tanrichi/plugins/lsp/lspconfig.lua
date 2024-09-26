@@ -71,7 +71,6 @@ return {
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
     -- Change the Diagnostic symbols in the sign column (gutter)
-    -- (not in youtube nvim video)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
@@ -85,18 +84,30 @@ return {
           capabilities = capabilities,
         })
       end,
-      ["graphql"] = function()
-        -- configure graphql language server
-        lspconfig["graphql"].setup({
+      ["ts_ls"] = function()
+        lspconfig.ts_ls.setup({
+          init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = "/home/richi/.nvm/versions/node/v18.20.4/lib/node_modules/@vue/language-server",
+                languages = { "vue" },
+              },
+            },
+          },
+          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+        })
+      end,
+      ["volar"] = function()
+        lspconfig["volar"].setup({
           capabilities = capabilities,
-          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
         })
       end,
       ["emmet_ls"] = function()
         -- configure emmet language server
         lspconfig["emmet_ls"].setup({
           capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "vue" },
         })
       end,
       ["lua_ls"] = function()
