@@ -47,7 +47,6 @@ return {
       telescope.load_extension("file_browser")
       telescope.load_extension("neoclip")
       telescope.load_extension("undo")
-      -- telescope.load_extension("harpoon")
 
       -- set keymaps
       local keymap = vim.keymap -- for conciseness
