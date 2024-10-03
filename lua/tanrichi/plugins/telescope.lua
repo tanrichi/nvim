@@ -56,8 +56,10 @@ return {
         builtin.find_files()
       end, { desc = "Fuzzy find files in cwd" })
 
-      -- Find recent files
-      keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
+      -- TODO: current location
+      -- keymap.set("n", "<leader>fr", function()
+      --   builtin.loclist()
+      -- end, { desc = "Telescope: find files in current location" })
 
       -- Find string
       keymap.set("n", "<leader>fg", function()

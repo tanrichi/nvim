@@ -27,6 +27,9 @@ keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
+-- Disable Capslock
+-- keymap.set({ "n", "v", "i" }, "<Capslock>", "<Nop>")
+
 -- Select all
 keymap.set("n", "==", "gg<S-v>G", { desc = "Select all" })
 
