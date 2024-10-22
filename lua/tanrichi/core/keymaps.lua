@@ -13,19 +13,20 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
--- Delete selected text and past last yank
-keymap.set("x", "<leader>p", [["_dP]], { desc = "Delete selected text and past last yank" })
-
 -- Better Yank
 keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Normal Yank" })
 keymap.set({ "n", "v" }, "<leader>Y", [["+Y]], { desc = "Yank to clipboard" })
 keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+keymap.set("x", "<leader>p", [["_dP]], { desc = "Delete selected text and past last yank" })
 
 -- Block arrow keys in normal mode for practice
 keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+
+keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Disable Capslock
 -- keymap.set({ "n", "v", "i" }, "<Capslock>", "<Nop>")
@@ -53,9 +54,19 @@ keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) --
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Focus left window" }) -- split window vertically
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Focus right window" }) -- split window vertically
 
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+-- LSP
+keymap.set("n", "<leader>rr", "<cmd>LspRestart<CR>", { desc = "Restart LSP server" })
+
+-- Marks
+keymap.set("n", "<leader>j", "`", { desc = "Go to local mark" })
+keymap.set("n", "<leader>R", "`", { desc = "Go to local mark" })
+keymap.set("n", "<leader>dm", ":delmarks a-z<CR>", { desc = "Clear local marks" })

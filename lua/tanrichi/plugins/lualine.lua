@@ -48,21 +48,36 @@ return {
         c = { bg = colors.inactive_bg, fg = colors.semilightgray },
       },
     }
+    local function parent_dir()
+      return vim.fn.fnamemodify(vim.fn.expand("%:p"), ":h")
+    end
 
     -- configure lualine with modified theme
     lualine.setup({
       options = {
-        theme = my_lualine_theme,
+        theme = "horizon",
       },
       sections = {
+        lualine_c = {
+          { "filename" },
+          {
+            "harpoon2",
+            indicators = { "a", "s", "c", "q", "5" },
+            active_indicators = { " a", " s", " c", " q", " 5" },
+            color_active = { fg = colors.blue },
+            _separator = " ",
+            no_harpoon = "Harpoon not loaded",
+          },
+        },
         lualine_x = {
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
             color = { fg = "#ff9e64" },
           },
-          { "encoding" },
-          { "fileformat" },
+          {
+            parent_dir,
+          },
           { "filetype" },
         },
       },

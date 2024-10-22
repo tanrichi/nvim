@@ -17,6 +17,8 @@ return {
       local trouble = require("trouble")
       local trouble_telescope = require("trouble.sources.telescope")
 
+      local fb_actions = require("telescope").extensions.file_browser.actions
+
       -- or create your custom action
       local custom_actions = transform_mod({
         open_trouble_qflist = function(prompt_bufnr)
@@ -29,6 +31,9 @@ return {
           undo = {},
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({}),
+          },
+          file_browser = {
+            -- hijack_netrw = true,
           },
         },
         defaults = {
@@ -43,10 +48,14 @@ return {
           },
         },
       })
+
       telescope.load_extension("ui-select")
+      telescope.load_extension("projects")
       telescope.load_extension("file_browser")
       telescope.load_extension("neoclip")
       telescope.load_extension("undo")
+
+      local extensions = telescope.extensions
 
       -- set keymaps
       local keymap = vim.keymap -- for conciseness
@@ -56,10 +65,10 @@ return {
         builtin.find_files()
       end, { desc = "Fuzzy find files in cwd" })
 
-      -- TODO: current location
-      -- keymap.set("n", "<leader>fr", function()
-      --   builtin.loclist()
-      -- end, { desc = "Telescope: find files in current location" })
+      -- Change Working Directory
+      keymap.set("n", "<leader>fw", function()
+        extensions.projects.projects()
+      end, { desc = "Telescope: Change working director" })
 
       -- Find string
       keymap.set("n", "<leader>fg", function()
@@ -71,8 +80,16 @@ return {
         builtin.buffers()
       end, { desc = "Find buffers" })
 
-      -- File Browser
-      keymap.set("n", "<space>fb", "<cmd>Telescope file_browser<CR>", { noremap = true, desc = "Open File Browser" })
+      -- Folder Browser
+      keymap.set("n", "<space>fb", function()
+        require("telescope").extensions.file_browser.file_browser({
+          path = "%:p:h",
+          files = false,
+          select_buffer = true,
+          grouped = true,
+          respect_gitignore = true,
+        })
+      end, { desc = "Open Folder browser" })
 
       -- Undo History
       keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Open Undo History" })
@@ -102,7 +119,9 @@ return {
 
       -- Find hidden files
       keymap.set("n", "<leader>fe", function()
-        builtin.find_files({ hidden = true, find_command = { "rg", "--files", "--glob", ".env*" } })
+        -- builtin.find_files({ hidden = true })
+        -- rg,--ignore,--hidden,--files,-u
+        builtin.find_files({ hidden = true, find_command = { "rg", "--ignore", "--hidden", "--files", "-u" } })
       end, { desc = "Find hidden files" })
     end,
   },
