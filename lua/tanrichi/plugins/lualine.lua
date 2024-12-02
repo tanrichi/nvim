@@ -62,8 +62,8 @@ return {
           { "filename" },
           {
             "harpoon2",
-            indicators = { "a", "s", "c", "q", "5" },
-            active_indicators = { " a", " s", " c", " q", " 5" },
+            indicators = { "a", "s", "c", "q", "f" },
+            active_indicators = { " a", " s", " c", " q", " f" },
             color_active = { fg = colors.blue },
             _separator = " ",
             no_harpoon = "Harpoon not loaded",

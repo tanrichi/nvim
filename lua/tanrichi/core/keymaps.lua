@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-
+vim.g.maplocalleader = ","
 local keymap = vim.keymap -- for conciseness
 
 -- Move blocks
@@ -17,7 +17,9 @@ keymap.set("n", "N", "Nzzzv")
 keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Normal Yank" })
 keymap.set({ "n", "v" }, "<leader>Y", [["+Y]], { desc = "Yank to clipboard" })
 keymap.set({ "n", "v" }, "<leader>d", [["_d]])
-keymap.set("x", "<leader>p", [["_dP]], { desc = "Delete selected text and past last yank" })
+
+keymap.set("x", "<leader>p", "p", { desc = "Past last yank and replace with delete selected text" })
+keymap.set("x", "p", [["_dP]], { desc = "Delete selected text and past last yank" })
 
 -- Block arrow keys in normal mode for practice
 keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
@@ -68,5 +70,5 @@ keymap.set("n", "<leader>rr", "<cmd>LspRestart<CR>", { desc = "Restart LSP serve
 
 -- Marks
 keymap.set("n", "<leader>j", "`", { desc = "Go to local mark" })
-keymap.set("n", "<leader>R", "`", { desc = "Go to local mark" })
 keymap.set("n", "<leader>dm", ":delmarks a-z<CR>", { desc = "Clear local marks" })
+keymap.set("n", "<leader>dM", ":delmarks! <CR>", { desc = "Clear global marks" })

@@ -61,7 +61,11 @@ return {
 
     vim.keymap.set("n", "<C-q>", function()
       harpoon:list():select(4)
-    end, { desc = "Harpoon: Go to mark 3 " })
+    end, { desc = "Harpoon: Go to mark 4 " })
+
+    vim.keymap.set("n", "<C-f>", function()
+      harpoon:list():select(5)
+    end, { desc = "Harpoon: Go to mark 5 " })
 
     vim.keymap.set("n", "<leader><C-a>", function()
       harpoon:list():replace_at(1)
@@ -77,15 +81,10 @@ return {
 
     vim.keymap.set("n", "<leader><C-q>", function()
       harpoon:list():replace_at(4)
-    end, { desc = "Harpoon: Replace mark 3 " })
+    end, { desc = "Harpoon: Replace mark 4 " })
 
-    for i = 5, 9 do
-      local keymap = "<C-" .. tostring(i) .. ">"
-      local description = "Harpoon: Go to mark " .. tostring(i) .. " "
-
-      vim.keymap.set("n", keymap, function()
-        harpoon:list():select(i)
-      end, { desc = description })
-    end
+    vim.keymap.set("n", "<leader><C-f>", function()
+      harpoon:list():replace_at(5)
+    end, { desc = "Harpoon: Replace mark 5 " })
   end,
 }

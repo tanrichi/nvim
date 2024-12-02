@@ -104,19 +104,16 @@ return {
         })
       end,
       ["emmet_ls"] = function()
-        -- configure emmet language server
         lspconfig["emmet_ls"].setup({
           capabilities = capabilities,
           filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "vue" },
         })
       end,
       ["lua_ls"] = function()
-        -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
           capabilities = capabilities,
           settings = {
             Lua = {
-              -- make the language server recognize "vim" global
               diagnostics = {
                 globals = { "vim" },
               },
@@ -124,6 +121,22 @@ return {
                 callSnippet = "Replace",
               },
             },
+          },
+        })
+      end,
+      ["cssls"] = function()
+        lspconfig["cssls"].setup({
+          capabilities = capabilities,
+          settings = {
+            css = { validate = true, lint = {
+              unknownAtRules = "ignore",
+            } },
+            scss = { validate = true, lint = {
+              unknownAtRules = "ignore",
+            } },
+            less = { validate = true, lint = {
+              unknownAtRules = "ignore",
+            } },
           },
         })
       end,

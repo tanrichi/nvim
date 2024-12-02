@@ -75,21 +75,26 @@ return {
         builtin.live_grep()
       end, { desc = "Find string in cwd" })
 
+      -- Find string
+      keymap.set("n", "<leader>fm", function()
+        builtin.marks()
+      end, { desc = "Find marks" })
+
       -- Find buffers
       keymap.set("n", "<leader><space>", function()
         builtin.buffers()
       end, { desc = "Find buffers" })
 
       -- Folder Browser
-      keymap.set("n", "<space>fb", function()
-        require("telescope").extensions.file_browser.file_browser({
-          path = "%:p:h",
-          files = false,
-          select_buffer = true,
-          grouped = true,
-          respect_gitignore = true,
-        })
-      end, { desc = "Open Folder browser" })
+      -- keymap.set("n", "<space>fb", function()
+      --   require("telescope").extensions.file_browser.file_browser({
+      --     path = "%:p:h",
+      --     files = false,
+      --     select_buffer = true,
+      --     grouped = true,
+      --     respect_gitignore = true,
+      --   })
+      -- end, { desc = "Open Folder browser" })
 
       -- Undo History
       keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Open Undo History" })
@@ -115,7 +120,7 @@ return {
       end, { desc = "Find Help Tags" })
 
       -- Find TODOs
-      keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+      -- keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 
       -- Find hidden files
       keymap.set("n", "<leader>fe", function()
