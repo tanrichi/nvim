@@ -17,8 +17,6 @@ return {
       local trouble = require("trouble")
       local trouble_telescope = require("trouble.sources.telescope")
 
-      local fb_actions = require("telescope").extensions.file_browser.actions
-
       -- or create your custom action
       local custom_actions = transform_mod({
         open_trouble_qflist = function(prompt_bufnr)
@@ -31,9 +29,6 @@ return {
           undo = {},
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({}),
-          },
-          file_browser = {
-            -- hijack_netrw = true,
           },
         },
         defaults = {
@@ -50,12 +45,8 @@ return {
       })
 
       telescope.load_extension("ui-select")
-      telescope.load_extension("projects")
-      telescope.load_extension("file_browser")
       telescope.load_extension("neoclip")
       telescope.load_extension("undo")
-
-      local extensions = telescope.extensions
 
       -- set keymaps
       local keymap = vim.keymap -- for conciseness
@@ -66,9 +57,6 @@ return {
       end, { desc = "Fuzzy find files in cwd" })
 
       -- Change Working Directory
-      keymap.set("n", "<leader>fw", function()
-        extensions.projects.projects()
-      end, { desc = "Telescope: Change working director" })
 
       -- Find string
       keymap.set("n", "<leader>fg", function()
@@ -84,17 +72,6 @@ return {
       keymap.set("n", "<leader><space>", function()
         builtin.buffers()
       end, { desc = "Find buffers" })
-
-      -- Folder Browser
-      -- keymap.set("n", "<space>fb", function()
-      --   require("telescope").extensions.file_browser.file_browser({
-      --     path = "%:p:h",
-      --     files = false,
-      --     select_buffer = true,
-      --     grouped = true,
-      --     respect_gitignore = true,
-      --   })
-      -- end, { desc = "Open Folder browser" })
 
       -- Undo History
       keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Open Undo History" })
@@ -120,7 +97,7 @@ return {
       end, { desc = "Find Help Tags" })
 
       -- Find TODOs
-      -- keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+      keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 
       -- Find hidden files
       keymap.set("n", "<leader>fe", function()

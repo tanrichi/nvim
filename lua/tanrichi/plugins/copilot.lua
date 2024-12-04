@@ -3,31 +3,19 @@ return {
   cmd = "Copilot",
   event = "InsertEnter",
   config = function()
-    require("copilot").setup({
+    local copilot = require("copilot")
+
+    -- Open the panel in insert mode
+    vim.api.nvim_set_keymap("i", "<M-\\>", "<cmd>Copilot panel<CR>", { noremap = true, silent = true })
+
+    copilot.setup({
       suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        hide_during_completion = false,
-        debounce = 75,
-        keymap = {
-          accept = "<M-m>",
-          accept_word = false,
-          accept_line = false,
-          next = "<M-]>",
-          prev = "<M-[>",
-          dismiss = "<C-]>",
-        },
-      },
-      panel = {
         enabled = false,
       },
+      panel = {
+        enabled = true,
+        autorefresh = true,
+      },
     })
-
-    vim.api.nvim_set_keymap(
-      "n",
-      "<leader>cc",
-      "<cmd>lua require('copilot').complete()<CR>",
-      { noremap = true, silent = true }
-    )
   end,
 }
