@@ -34,13 +34,16 @@ return {
         "emmet_ls",
         "ts_ls",
         "volar",
+        "gopls",
       },
+      automatic_installation = true,
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
+        "golangci-lint", -- go linter
       },
     })
   end,

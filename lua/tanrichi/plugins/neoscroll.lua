@@ -1,7 +1,7 @@
 return {
   "karb94/neoscroll.nvim",
   config = function()
-    require("neoscroll").setup({})
+    require("neoscroll").setup({ mappings = {} })
 
     local neoscroll = require("neoscroll")
 
@@ -14,12 +14,6 @@ return {
       end,
       ["<C-b>"] = function()
         neoscroll.ctrl_b({ duration = 450 })
-      end,
-      ["<C-y>"] = function()
-        neoscroll.scroll(-0.1, { move_cursor = false, duration = 100 })
-      end,
-      ["<C-e>"] = function()
-        neoscroll.scroll(0.1, { move_cursor = false, duration = 100 })
       end,
       ["zt"] = function()
         neoscroll.zt({ half_win_duration = 250 })
