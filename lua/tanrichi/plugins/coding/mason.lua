@@ -1,20 +1,12 @@
 return {
   "williamboman/mason.nvim",
-  lazy = false,
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    { "williamboman/mason-lspconfig.nvim", config = function() end },
   },
+  build = ":MasonUpdate",
   config = function()
-    -- import mason
     local mason = require("mason")
-
-    -- import mason-lspconfig
     local mason_lspconfig = require("mason-lspconfig")
-
-    local mason_tool_installer = require("mason-tool-installer")
-
-    -- enable mason and configure icons
     mason.setup({
       ui = {
         icons = {
@@ -28,23 +20,15 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
+        "ts_ls",
         "html",
+        "cssls",
         "tailwindcss",
         "lua_ls",
+        "graphql",
         "emmet_ls",
-        "ts_ls",
-        "volar",
-        "gopls",
-      },
-      automatic_installation = true,
-    })
-
-    mason_tool_installer.setup({
-      ensure_installed = {
-        "prettier", -- prettier formatter
-        "stylua", -- lua formatter
-        "golangci-lint", -- go linter
+        "gopls"
       },
     })
-  end,
+  end
 }

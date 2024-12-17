@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(
-  { { import = "tanrichi.plugins" }, { import = "tanrichi.plugins.lsp" }, { import = "tanrichi.plugins.themes" } },
+  { { import = "tanrichi.plugins" }, { import = "tanrichi.plugins.coding" }, { import = "tanrichi.plugins.themes" } },
   {
     checker = {
       enabled = true,
