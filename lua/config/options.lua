@@ -3,3 +3,4 @@
 -- Add any additional options here
 vim.g.maplocalleader = ","
 vim.opt.scrolloff = 25
+-- vim.g.lazyvim_eslint_auto_format = true
